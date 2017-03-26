@@ -14,4 +14,11 @@ class VentesController extends Controller
     	$ventes = Bien::where('categorie_id', 1)->with('categorie', 'user', 'classe')->get();
     	return view('ventes',compact('ventes','infos'));
     }
+    
+    public function requeteAjax(Request $request){
+        if($request->ajax()){
+            $ventes = Bien::where('categorie_id', 2)->with('categorie', 'user', 'classe')->get();
+            return response(['ventes'=>$ventes]);
+        }        
+    }
 }

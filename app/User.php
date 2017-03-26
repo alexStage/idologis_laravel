@@ -35,11 +35,11 @@ class User extends Authenticatable
 
 
     public function isAdmin(){
-        return $this->admin; // this looks for an admin column in your users table
+        return $this->admin; // retourne vrai ou faux selon le boolean admin dans la base
     }
 
     public function isVendeur(){
-        return $this->vendeur; // this looks for an admin column in your users table
+        return $this->vendeur; // retourne vrai ou faux selon le boolean vendeur dans la base
     }
 
 }

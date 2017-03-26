@@ -4,6 +4,8 @@
 		<title>IdoLogis</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="{{URL::asset('css/style.css')}}" rel="stylesheet" type="text/css" />
+                <script language="JavaScript" type="text/javascript" src="{{URL::asset('js/jQuery.js')}}"></script>
+                <script language="JavaScript" type="text/javascript" src="{{URL::asset('js/recherche.js')}}"></script>
 	</head>
 	<body>	
 

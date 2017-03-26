@@ -23,6 +23,8 @@ Route::post('/ajoutBien', ['uses'=>'FormulairesController@update', 'as'=>'ajoute
 Route::get('/details/{id}', ['uses'=>'DetailsController@index', 'as'=>'details']);
 Route::get('/supprimerBien/{id}', ['uses'=>'FormulairesController@supprimerBien', 'as'=>'supprimerBien']);
 
+Route::get('/rechercheBien', ['uses'=>'VentesController@requeteAjax', 'as'=>'ajaxVentes']);
+
 Auth::routes();
 
 
