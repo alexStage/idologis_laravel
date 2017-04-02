@@ -18,7 +18,8 @@ class VentesController extends Controller
     public function requeteAjax(Request $request){
         if($request->ajax()){
             $ventes = Bien::where('categorie_id', 2)->with('categorie', 'user', 'classe')->get();
-            return response(['ventes'=>$ventes]);
+            $json = json_encode($ventes);
+            return response($json);
         }        
     }
 }

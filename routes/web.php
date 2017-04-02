@@ -25,6 +25,8 @@ Route::get('/supprimerBien/{id}', ['uses'=>'FormulairesController@supprimerBien'
 
 Route::get('/rechercheBien', ['uses'=>'VentesController@requeteAjax', 'as'=>'ajaxVentes']);
 
+
+
 Auth::routes();
 
 
