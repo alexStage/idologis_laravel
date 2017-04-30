@@ -23,7 +23,7 @@ class Vendeur
             return $next($request);
             
         }else{
-            Session::flash('message', "Vous devez etre un vendeur ou un administrateur pour accéder à cette page.");
+            Session::flash('warning', "Vous devez etre un vendeur ou un administrateur pour accéder à cette page.");
             return Redirect::back();
         }
     }

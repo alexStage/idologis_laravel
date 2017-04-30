@@ -5,6 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <title>idologis</title>
@@ -61,8 +62,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</form>
 			</div>
 			<div class="clearfix"></div>
-		</div>
-    
+		</div>       
+        
+            @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{Session::get('success')}}
+            </div>
+            @endif
+            
+            @if(Session::has('warning'))
+            <div class="alert alert-warning">
+                {{Session::get('warning')}}
+            </div>
+            @endif
         <div class="conteneur">
             @yield('content')
         </div>
