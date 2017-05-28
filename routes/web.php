@@ -13,10 +13,13 @@
 
 Route::get('/',['uses'=>'AccueilController@infos', 'as'=>'accueil']);
 
+Route::get('/auth/logout', ['uses'=> 'ConnexionController@index', 'as'=> 'deconnexion']);
+
 Route::get('/ventes', ['uses'=>'VentesController@index', 'as'=>'ventes']);
 Route::get('/locations', ['uses'=>'LocationsController@index', 'as'=>'locations']);
 Route::get('/contacts', ['uses'=>'ContactController@index', 'as'=>'contacts']);
 Route::post('/contacts', ['uses'=>'ContactController@mail', 'as'=>'envoie']);
+Route::get('/gestionVendeur', ['uses'=>'GestionVendeur@index', 'as'=>'gestionVendeur']);
 
 Route::get('/ajoutBien', ['uses'=>'FormulairesController@ajoutBien', 'as'=>'ajoutBien'])->middleware('vendeur');
 Route::post('/ajoutBien', ['uses'=>'FormulairesController@update', 'as'=>'ajouteBienForm']);

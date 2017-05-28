@@ -50,11 +50,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="hover-effect"><a href="{{URL::route('ventes')}}">Ventes</a></li>
 							<li class="hover-effect"><a href="{{URL::route('locations')}}">Locations</a></li>
 							<li class="hover-effect"><a href="{{URL::route('contacts')}}">Contact</a></li>
+                                                        @if(Auth::check() AND Auth::user()->isAdmin())
+                                                            <li class="hover-effect"><a href="{{URL::route('gestionVendeur')}}">gestion utilisateur</a></li>
+                                                        @endif
 						</ul>
 					</div>
 
 				</nav>		
 			</div>	
+                   
+                    
 			<div class="search">
 				<form action="#" method="post">
 					<input type="text" name="search" placeholder="Search here" required="">
@@ -63,6 +68,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="clearfix"></div>
 		</div>       
+                
+                @if(Auth::check() AND Auth::user()->isAdmin())
+                    <div class="alert alert-info">
+                      Vous êtes connecté en tant qu'administrateur.
+                      <a href="{{ URL::route('deconnexion') }}"> Se déconnecter</a>
+                    </div>
+                @endif
+                @if(Auth::check() AND Auth::user()->isVendeur())
+                    <div class="alert alert-info">
+                      Vous êtes connecté en tant que vendeur.
+                      <a href="{{ URL::route('deconnexion') }}"> Se déconnecter</a>
+                    </div>
+                @endif
         
             @if(Session::has('success'))
             <div class="alert alert-success">

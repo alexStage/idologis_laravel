@@ -50,11 +50,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="hover-effect"><a href="<?php echo e(URL::route('ventes')); ?>">Ventes</a></li>
 							<li class="hover-effect"><a href="<?php echo e(URL::route('locations')); ?>">Locations</a></li>
 							<li class="hover-effect"><a href="<?php echo e(URL::route('contacts')); ?>">Contact</a></li>
+                                                        <?php if(Auth::check() AND Auth::user()->isAdmin()): ?>
+                                                            <li class="hover-effect"><a href="<?php echo e(URL::route('gestionVendeur')); ?>">gestion utilisateur</a></li>
+                                                        <?php endif; ?>
 						</ul>
 					</div>
 
 				</nav>		
 			</div>	
+                   
+                    
 			<div class="search">
 				<form action="#" method="post">
 					<input type="text" name="search" placeholder="Search here" required="">
@@ -63,6 +68,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="clearfix"></div>
 		</div>       
+                
+                <?php if(Auth::check() AND Auth::user()->isAdmin()): ?>
+                    <div class="alert alert-info">
+                      Vous êtes connecté en tant qu'administrateur.
+                      <a href="<?php echo e(URL::route('deconnexion')); ?>"> Se déconnecter</a>
+                    </div>
+                <?php endif; ?>
+                <?php if(Auth::check() AND Auth::user()->isVendeur()): ?>
+                    <div class="alert alert-info">
+                      Vous êtes connecté en tant que vendeur.
+                      <a href="<?php echo e(URL::route('deconnexion')); ?>"> Se déconnecter</a>
+                    </div>
+                <?php endif; ?>
         
             <?php if(Session::has('success')): ?>
             <div class="alert alert-success">
