@@ -9,6 +9,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 <head>
 <title>idologis</title>
+<meta name="csrf-token" content=" <?php echo e(csrf_token()); ?>">
+<!--<script>
+ 
+        $(function() {
+ 
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                })
+            
+        });
+</script>-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Simple UI Kit Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -47,8 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li class="hover-effect"><a href="<?php echo e(URL::to('/')); ?>">Accueil</a></li>
-							<li class="hover-effect"><a href="<?php echo e(URL::route('ventes')); ?>">Ventes</a></li>
-							<li class="hover-effect"><a href="<?php echo e(URL::route('locations')); ?>">Locations</a></li>
+							<li class="hover-effect"><a href="<?php echo e(URL::route('locations')); ?>">Ventes/Locations</a></li>
 							<li class="hover-effect"><a href="<?php echo e(URL::route('contacts')); ?>">Contact</a></li>
                                                         <?php if(Auth::check() AND Auth::user()->isAdmin()): ?>
                                                             <li class="hover-effect"><a href="<?php echo e(URL::route('gestionVendeur')); ?>">gestion utilisateur</a></li>
@@ -110,6 +121,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src= "<?php echo e(URL::asset("js/moment-2.2.1.js")); ?>" type="text/javascript"></script>
 <script src="<?php echo e(URL::asset("js/clndr.js")); ?>" type="text/javascript"></script>
 <script src="<?php echo e(URL::asset("js/site.js")); ?>" type="text/javascript"></script>
-<script src="<?php echo e(URL::asset("js/recherche.js")); ?>" type="text/javascript"></script>
+
 </body>
 </html>

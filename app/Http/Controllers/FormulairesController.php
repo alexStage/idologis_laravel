@@ -58,4 +58,11 @@ class FormulairesController extends Controller
         DB::table('biens')->where('id', $id)->delete();
         return Redirect::back();
     }
+    
+    public function formulaireSupprimerBienAjax($id, Request $request){
+        if($request->ajax()){
+            DB::table('biens')->where('id', $id)->delete();
+            return response("bien supprimé");
+        }
+    }
 }

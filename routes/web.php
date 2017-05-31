@@ -19,7 +19,7 @@ Route::get('/ventes', ['uses'=>'VentesController@index', 'as'=>'ventes']);
 Route::get('/locations', ['uses'=>'LocationsController@index', 'as'=>'locations']);
 Route::get('/contacts', ['uses'=>'ContactController@index', 'as'=>'contacts']);
 Route::post('/contacts', ['uses'=>'ContactController@mail', 'as'=>'envoie']);
-Route::get('/gestionVendeur', ['uses'=>'GestionVendeur@index', 'as'=>'gestionVendeur']);
+Route::get('/gestionVendeur', ['uses'=>'GestionVendeur@index', 'as'=>'gestionVendeur'])->middleware('admin');
 
 Route::get('/ajoutBien', ['uses'=>'FormulairesController@ajoutBien', 'as'=>'ajoutBien'])->middleware('vendeur');
 Route::post('/ajoutBien', ['uses'=>'FormulairesController@update', 'as'=>'ajouteBienForm']);
@@ -27,7 +27,9 @@ Route::post('/ajoutBien', ['uses'=>'FormulairesController@update', 'as'=>'ajoute
 Route::get('/details/{id}', ['uses'=>'DetailsController@index', 'as'=>'details']);
 Route::get('/supprimerBien/{id}', ['uses'=>'FormulairesController@supprimerBien', 'as'=>'supprimerBien']);
 
-Route::get('/rechercheBien', ['uses'=>'VentesController@requeteAjax', 'as'=>'ajaxVentes']);
+
+
+
 
 
 Auth::routes();

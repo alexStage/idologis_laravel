@@ -15,7 +15,8 @@ class UsersTableSeeder extends Seeder
             'name'=>'test',
             'prenom'=>'Jack',
             'email'=>'test@test.fr',
-            'password'=>bcrypt('Onepiece97'),
+            'password'=>bcrypt('root'),
+            'passwordmd5'=>md5('root'),
             'vendeur'=>1
         ]);
 
@@ -23,7 +24,8 @@ class UsersTableSeeder extends Seeder
             'name'=>'dhaene',
             'prenom'=>'alexandre',
             'email'=>'dhaene@alexandre.fr',
-            'password'=>bcrypt('Onepiece97'),
+            'password'=>bcrypt('root'),
+            'passwordmd5'=>md5('root'),
             'admin'=>1
         ]);
     }

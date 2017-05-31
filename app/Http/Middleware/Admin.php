@@ -15,7 +15,7 @@ class Admin {
         {
             return $next($request);
         }
-        Session::flash('message', "Vous devez etre admin pour accéder à cette page.");
+        Session::flash('warning', "Vous devez etre admin pour accéder à cette page.");
         return Redirect::back();
 
     }

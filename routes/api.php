@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::get('/vendeur/{id}', [function($id, Request $request){
+        if($request->ajax()){
+            $biens = Bien::where('user_id', $id)->with('categorie', 'user', 'classe')->get();
+            $biens->toJson();
+            return response($biens);
+    }
+},'as'=>'ajax']);
+
+Route::get('/rechercheBien', ['uses'=>'VentesController@requeteAjax', 'as'=>'ajaxVentes']);
+
+Route::get('/supprimerBien/{id}', ['uses'=>'FormulairesController@supprimerBienAjax', 'as'=>'supprimerBien']);

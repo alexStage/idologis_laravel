@@ -32,7 +32,9 @@ class User extends Authenticatable
         'is_vendeur' => 'boolean', //sert pour le middleware Admin et Vendeur
     ];
 
-
+    public function biens(){
+        return $this->hasMany('App\Bien');
+    }
 
     public function isAdmin(){
         return $this->admin; // retourne vrai ou faux selon le boolean admin dans la base

@@ -12,14 +12,15 @@ class VentesController extends Controller
     public function index(){
     	$infos = Informations::first();
     	$ventes = Bien::where('categorie_id', 1)->with('categorie', 'user', 'classe')->get();
-    	return view('ventes',compact('ventes','infos'));
+        $locations = Bien::where('categorie_id', 2)->with('categorie', 'user', 'classe')->get();
+    	return view('ventes',compact('ventes','locations','infos'));
     }
     
     public function requeteAjax(Request $request){
         if($request->ajax()){
             $ventes = Bien::where('categorie_id', 2)->with('categorie', 'user', 'classe')->get();
-            $json = json_encode($ventes);
-            return response($json);
+            $ventes->toJson();
+            return response($ventes);
         }        
     }
 }

@@ -47,7 +47,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-                                <a href="register">S'enregistrer</a>
+<!--                                <a href="register">S'enregistrer</a>-->
                             </div>
                         </div>
                     </form>
