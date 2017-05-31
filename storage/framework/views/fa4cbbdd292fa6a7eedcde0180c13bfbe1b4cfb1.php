@@ -93,7 +93,7 @@
                         </tr>
                         <tr>
                             <td class="case" onclick="document.location='<?php echo e(URL::route('details', ['id'=> $location->id])); ?>'"><p class="prix"><?php echo e($location->prix); ?>€</p>
-                                <img src= "<?php echo e(URL::asset('photos/'.$vente->photo)); ?>"/>
+                                <img src= "<?php echo e(URL::asset('photos/'.$location->photo)); ?>"/>
                         <?php if(Auth::check() == true): ?>
                         <?php if(Auth::User()->isAdmin() ==true): ?>
                         <button class="btn btn-info" style="align:center;"><a href="<?php echo e(URL::route('supprimerBien', ['id'=> $location->id])); ?>">supprimer</a></button>

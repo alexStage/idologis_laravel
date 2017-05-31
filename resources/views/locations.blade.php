@@ -95,7 +95,7 @@
                         </tr>
                         <tr>
                             <td class="case" onclick="document.location='{{ URL::route('details', ['id'=> $location->id]) }}'"><p class="prix">{{ $location->prix }}€</p>
-                                <img src= "{{URL::asset('photos/'.$vente->photo)}}"/>
+                                <img src= "{{URL::asset('photos/'.$location->photo)}}"/>
                         @if(Auth::check() == true)
                         @if(Auth::User()->isAdmin() ==true)
                         <button class="btn btn-info" style="align:center;"><a href="{{URL::route('supprimerBien', ['id'=> $location->id])}}">supprimer</a></button>
